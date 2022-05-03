@@ -7,4 +7,5 @@ include_directories(.)
 
 add_executable(Ex3OOP
         MainTrain.cpp
-        str.h)
+        str.h
+        str.cpp)
