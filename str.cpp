@@ -1,4 +1,4 @@
-// Ofir Shtrosberg 207828641
+// Ofir Shtrosberg, 207828641
 #include "str.h"
 //constructor
 Str::Str() {
@@ -67,9 +67,10 @@ const Str &Str::operator=(const char *str) {
 }
 //return the m_str[index]
 char &Str::operator[](int index) const {
-    //if(index< (int)strlen(m_str))
+    try {
         return m_str[index];
-    // what if index out of range
+    }
+    catch (...){};
 }
 //prefix ++
 //add 1 to all the chars in the current's m_str
