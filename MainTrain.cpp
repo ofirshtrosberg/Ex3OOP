@@ -3,7 +3,10 @@
 int main()
 {
 	//1
-	Str s1;
+//    Str str2;
+//	Str s1 = str2;
+//    s1 = s1;
+    Str s1;
 	if( 0 != strcmp( s1.getStr(), "none" ) )
 		cout << "Error creating empty Str (-5)" << endl;
 
@@ -58,11 +61,13 @@ int main()
 		cout << "Error in operator= (-5)" << endl;
 
 	//11
+  // cout<<s4[50000];
 	if( s4[2] != 's' )
 		cout << "Error in operator[] (-5)" << endl;
 
 	//12
 	++s4;
+//    s4[500];
 	if( s4[2] != 't' )
 		cout << "Error in operator++ (-5)" << endl;
 
