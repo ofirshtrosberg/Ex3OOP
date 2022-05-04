@@ -1,9 +1,10 @@
 // Ofir Shtrosberg, 207828641
 #include "str.h"
 #include "iostream"
+
 //constructor
 Str::Str() {
-   m_str = strdup("none");
+    m_str = strdup("none");
 }
 
 //constructor
@@ -59,7 +60,7 @@ bool Str::operator<(const Str &other) const {
 const Str &Str::operator=(const Str &other) {
     //if they are not pointing to the same string
     if (this != &other) {
-        if(m_str!= nullptr) {
+        if (m_str != nullptr) {
             delete[] m_str;
         }
         m_str = strdup(other.getStr());
@@ -69,19 +70,19 @@ const Str &Str::operator=(const Str &other) {
 
 //delete the old m_str and update it to be the given str
 const Str &Str::operator=(const char *str) {
-   if(&m_str!=&str){
-       if(m_str!= nullptr) {
-           delete[] m_str;
-       }
-       m_str= strdup(str);
-   }
-   return *this;
+    if (&m_str != &str) {
+        if (m_str != nullptr) {
+            delete[] m_str;
+        }
+        m_str = strdup(str);
+    }
+    return *this;
 }
 
 //return the m_str[index]
 char &Str::operator[](int index) const {
-    if(index>=(int)strlen(m_str)||index<0){
-        cout<<"error"<<endl;
+    if (index >= (int) strlen(m_str) || index < 0) {
+        cout << "error" << endl;
         exit(0);
     }
     return m_str[index];
@@ -123,7 +124,7 @@ int Str::operator()(char ch) const {
 Str Str::operator+(const Str &other) const {
     int size = (int) strlen(m_str);
     int otherSize = (int) strlen(other.getStr());
-    char* concatStings = new char[size + otherSize];
+    char *concatStings = new char[size + otherSize];
     strcpy(concatStings, m_str);
     strcat(concatStings, other.getStr());
     Str strConcat(concatStings);
@@ -146,13 +147,13 @@ Str::operator int() const {
 //concatenates between str and other's m_str
 Str operator+(const char *str, const Str &other) {
     Str str1(str);
-    return (str1+other);
+    return (str1 + other);
 }
 
 //concatenates the given Str num times
 Str operator*(int num, const Str &other) {
     int otherSize = (int) strlen(other.getStr());
-    char* concatStings = new char[num * otherSize];
+    char *concatStings = new char[num * otherSize];
     strcpy(concatStings, other.getStr());
     for (int j = 1; j < num; ++j) {
         strcat(concatStings, other.getStr());
